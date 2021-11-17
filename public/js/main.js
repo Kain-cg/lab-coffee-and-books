@@ -24,7 +24,7 @@ function initMap() {
   // 6. Instrucciones: Creado y llamado a getRestaurants para recuperar
   //    esa info de la BD
   function getPlaces() {
-    return axios.get("/places/api")
+    return axios.get("/api")
       .then(response => response.data.places)
   }
 
@@ -32,12 +32,13 @@ function initMap() {
 
   function placePlaces(map, places) {
     const markers = []
+    console.log(markers)
   
     // 8. Instrucciones: Por cada restaurante creo un nuevo Marker
     places.forEach((place) => {
       const center = {
-        lat: restaurant.location.coordinates[1],
-        lng: restaurant.location.coordinates[0]
+        lat: place.location.coordinates[1],
+        lng: place.location.coordinates[0]
       };
       const newMarker = new google.maps.Marker({
         position: center,

@@ -76,7 +76,7 @@ router.post('/:place_id', (req, res, next) => {
 });
 
 // DELETE => remove the restaurant from the DB
-router.get('/:place_id/delete', (req, res, next) => {
+router.get('/places/:place_id/delete', (req, res, next) => {
 	Place.findByIdAndRemove(req.params.place_id)
 		.then(() => res.redirect('/places'))
 		.catch(err => next(err))
@@ -86,7 +86,7 @@ router.get('/:place_id/delete', (req, res, next) => {
 
 
 // GET => get the details of one restaurant
-router.get('/:place_id', (req, res, next) => {
+router.get('/places/:place_id', (req, res, next) => {
 	Place.findById(req.params.place_id)
 		.then(place => res.render('places/show', { place: place }))
 		.catch(err => next(err))

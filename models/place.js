@@ -21,6 +21,6 @@ const placeSchema = new Schema({
 placeSchema.index({ location: '2dsphere' });
 
 
-const User = model("User", placeSchema);
+const Place = model("Place", placeSchema);
 
-module.exports = User;
+module.exports = Place;
